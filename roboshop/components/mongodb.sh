@@ -30,7 +30,7 @@ cd /tmp
 
 echo "Extracting Schema Archive"
 
-unzip mongodb.zip >/tmp/log
+unzip -o mongodb.zip >/tmp/log
 
 cd mongodb-main
 

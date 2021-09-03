@@ -12,13 +12,16 @@ Stats_Check(){
     fi
 }
 
+
 Print() {
     echo -n -e "$1 \t- "
 }
 
-if [ $UID -ne 0 ]
+
+if [ $UID -ne 0 ];
 then
-echo -e "\e[1;33mYou should execute this script as root user"
+echo -e "\e[1;33mYou should execute this script as root user\e[0m"
+exit 1
 fi
 
   

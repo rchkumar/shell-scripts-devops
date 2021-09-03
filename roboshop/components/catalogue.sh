@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "install catalogue"
+
+source components/common.sh

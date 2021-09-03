@@ -13,10 +13,10 @@ Stats_Check(){
 }
 
 Print() {
-    echo -n -e "$1"
+    echo -n -e "$1 \t- "
 }
 
-echo "Setting up Mongo DB Repo:"
+Print "Setting up Mongo DB Repo:"
 
 
 echo '[mongodb-org-4.2]
@@ -28,20 +28,20 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mong
 Stats_Check $?
 
 
-Print "Installing MongoDB"
+Print "Installing MongoDB\t"
 
 yum install -y mongodb-org >/tmp/log
 
 Stats_Check $?
 
 
-Print "Configuring MongoDB"
+Print "Configuring MongoDB\t"
 
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 Stats_Check $?
 
 
-Print " Starting MongoDB"
+Print " Starting MongoDB\t"
 
 systemctl enable mongod
 systemctl restart mongod
@@ -56,7 +56,7 @@ Stats_Check $?
 
 cd /tmp
 
-echo "Extracting Schema Archive"
+Print "Extracting Schema Archive"
 
 unzip -o mongodb.zip >/tmp/log
 
@@ -65,7 +65,7 @@ Stats_Check $?
 
 cd mongodb-main
 
-echo "Loading Schema"
+Print "Loading Schema\t"
 
 mongo < catalogue.js >/tmp/log
 mongo < users.js  >/tmp/log

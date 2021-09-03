@@ -27,7 +27,6 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 Stats_Check $?
 
-
 Print "Installing MongoDB\t"
 
 yum install -y mongodb-org >/tmp/log
@@ -41,7 +40,7 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 Stats_Check $?
 
 
-Print " Starting MongoDB\t"
+Print "Starting MongoDB\t"
 
 systemctl enable mongod
 systemctl restart mongod
@@ -65,7 +64,7 @@ Stats_Check $?
 
 cd mongodb-main
 
-Print "Loading Schema\t"
+Print "Loading Schema\t\t"
 
 mongo < catalogue.js >/tmp/log
 mongo < users.js  >/tmp/log

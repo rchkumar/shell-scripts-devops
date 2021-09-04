@@ -26,10 +26,7 @@ Stats_Check $?
 Print "Extracting Catalogue"
 
 cd /home/roboshop
-rm -rf catalogue
-unzip /tmp/catalogue.zip &>>$LOG
-
-mv catalogue-main catalogue
+rm -rf catalogue  && unzip /tmp/catalogue.zip &>>$LOG && mv catalogue-main catalogue
 Stats_Check $?
 
 Print "Download NodeJS Dependencies"
@@ -43,9 +40,8 @@ Stats_Check $?
 
 chown roboshop:roboshop -R /home/roboshop
 
+Print "Setup SystemD Service"
 
-
-# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-# systemctl daemon-reload
-# systemctl start catalogue
-# systemctl enable catalogue
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl start catalogue &>>$LOG && 
+systemctl enable catalogue &>>$LOG
+Stats_Check $?

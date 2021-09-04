@@ -45,6 +45,6 @@ Stats_Check $?
 
 Print "Setup SystemD Service"
 
-mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl start catalogue &>>$LOG && 
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl restart catalogue &>>$LOG && 
 systemctl enable catalogue &>>$LOG
 Stats_Check $?

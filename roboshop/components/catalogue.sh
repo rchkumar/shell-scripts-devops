@@ -31,10 +31,14 @@ unzip /tmp/catalogue.zip &>>$LOG
 mv catalogue-main catalogue
 Stats_Check $?
 
+Print "Download NodeJS Dependencies"
+
 cd /home/roboshop/catalogue
 
 
 npm install --unsafe-perm &>>$LOG
+
+Stats_Check $?
 
 
 

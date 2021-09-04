@@ -20,7 +20,7 @@ yum install redis -y &>>$LOG
 Stats_Check $?
 
 
-Print "Configure Redis Listen Address\t\t\t"
+Print "Configure Redis Listen Address\t\t"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf
 Stats_Check $?
 

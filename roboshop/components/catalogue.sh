@@ -40,7 +40,7 @@ Stats_Check $?
 chown roboshop:roboshop -R /home/roboshop
 
 Print "Update SystemD Service"
-sed -i -e '/s/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service
 Stats_Check $?
 
 Print "Setup SystemD Service"

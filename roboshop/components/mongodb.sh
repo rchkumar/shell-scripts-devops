@@ -15,7 +15,7 @@ Stats_Check $?
 
 Print "Installing MongoDB\t"
 
-yum install -y mongodb-org >/tmp/log
+yum install -y mongodb-org &>>$LOG
 
 Stats_Check $?
 
@@ -43,7 +43,7 @@ cd /tmp
 
 Print "Extracting Schema Archive"
 
-unzip -o mongodb.zip >/tmp/log
+unzip -o mongodb.zip &>>$LOG
 
 Stats_Check $?
 
@@ -52,8 +52,8 @@ cd mongodb-main
 
 Print "Loading Schema\t\t"
 
-mongo < catalogue.js >/tmp/log
-mongo < users.js  >/tmp/log
+mongo < catalogue.js &>>$LOG
+mongo < users.js  &>>$LOG
 Stats_Check $?
 
 exit 0

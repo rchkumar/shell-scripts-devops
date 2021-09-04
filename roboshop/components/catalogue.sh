@@ -5,16 +5,16 @@ source components/common.sh
 Print "Installing NodeJS"
 
 yum install nodejs make gcc-c++ -y 
-Status_Check $?
+Stats_Check $?
 
 Print "Adding RoboShop User"
 
 useradd roboshop &>>$LOG
-Status_Check $?
+Stats_Check $?
 
 Print "Downloading Catalogue Content"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
-Status_Check $?
+Stats_Check $?
 
 Print "Extracting Catalogue"
 
@@ -22,7 +22,7 @@ cd /home/roboshop
 unzip /tmp/catalogue.zip &>>$LOG
 
 mv catalogue-main catalogue
-Status_Check $?
+Stats_Check $?
 
 cd /home/roboshop/catalogue
 

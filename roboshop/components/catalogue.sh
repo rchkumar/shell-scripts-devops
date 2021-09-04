@@ -27,7 +27,7 @@ Stats_Check $?
 cd /home/roboshop/catalogue
 
 
-npm install &>>$LOG
+npm install --unsafe-perm &>>$LOG
 
 
 

@@ -26,6 +26,7 @@ Stats_Check $?
 Print "Extracting Catalogue"
 
 cd /home/roboshop
+rm -rf catalogue
 unzip /tmp/catalogue.zip &>>$LOG
 
 mv catalogue-main catalogue
@@ -39,6 +40,8 @@ cd /home/roboshop/catalogue
 npm install --unsafe-perm &>>$LOG
 
 Stats_Check $?
+
+chown roboshop:roboshop -R /home/roboshop
 
 
 

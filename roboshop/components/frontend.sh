@@ -7,7 +7,7 @@ yum install nginx -y &>>$LOG
 Stats_Check $?
 
 Print "Download frontend archive"
-curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>>$LOG
 Stats_Check $?
 
 

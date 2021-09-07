@@ -53,7 +53,7 @@ DOWNLOAD(){
         Print "Extracting ${COMPONENT}\t"
         
         cd /home/roboshop
-        rm -rf ${COMPONENT} && unzip /tmp/${COMPONENT}.zip &>>$LOG && mv ${COMPONENT}-main ${COMPONENT}
+        rm -rf ${COMPONENT} && unzip -o /tmp/${COMPONENT}.zip &>>$LOG && mv ${COMPONENT}-main ${COMPONENT}
         
 }
 
@@ -79,10 +79,6 @@ NODEJS(){
         
         ADD_APP_USER
         DOWNLOAD
-        
-      
-       
-        
         Print "Download NodeJS Dependencies"
         
         cd /home/roboshop/${COMPONENT}

@@ -16,9 +16,15 @@ rm -rf /usr/share/nginx/* && cd /usr/share/nginx && unzip -o  /tmp/frontend.zip 
 Stats_Check $?
 
 
-Print "Update Nginx RoboShop Config"
+Print "Copy Nginx RoboShop Config"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>$LOG
 Stats_Check $?
+
+
+Print "Update Nginx RoboShop Config"
+sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal'  /etc/nginx/default.d/roboshop.conf &>>$LOG
+Stats_Check $?
+
 
 Print "Restart Nginx\t\t"
 systemctl restart nginx &>>$LOG && systemctl enable nginx &>>$LOG

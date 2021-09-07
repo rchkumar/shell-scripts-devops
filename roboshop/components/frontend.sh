@@ -17,7 +17,7 @@ Stats_Check $?
 
 
 Print "Update Nginx RoboShop Config"
-mv localhostl.conf /etc/nginx/default.d/roboshop.conf &>>$LOG
+mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>$LOG
 Stats_Check $?
 
 Print "Restart Nginx\t\t"

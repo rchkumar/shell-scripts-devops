@@ -2,12 +2,12 @@
 
 source components/common.sh
 
-Print "Installing NodeJS"
+Print "Installing NodeJS\t"
 
 yum install nodejs make gcc-c++ -y  &>>$LOG
 Stats_Check $?
 
-Print "Adding RoboShop User"
+Print "Adding RoboShop User\t"
 id roboshop &>>$LOG
 
 if [ $? -eq 0 ];
@@ -23,7 +23,7 @@ Print "Downloading Catalogue Content"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
 Stats_Check $?
 
-Print "Extracting Catalogue"
+Print "Extracting Catalogue\t"
 
 cd /home/roboshop
 rm -rf catalogue  && unzip /tmp/catalogue.zip &>>$LOG && mv catalogue-main catalogue
@@ -39,11 +39,11 @@ Stats_Check $?
 
 chown roboshop:roboshop -R /home/roboshop
 
-Print "Update SystemD Service"
+Print "Update SystemD Service\t"
 sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service
 Stats_Check $?
 
-Print "Setup SystemD Service"
+Print "Setup SystemD Service\t"
 
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl restart catalogue &>>$LOG && 
 systemctl enable catalogue &>>$LOG

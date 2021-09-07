@@ -2,7 +2,7 @@
 
 source components/common.sh
 
-Print "To Install Nginx."
+Print "To Install Nginx\t\t"
 yum install nginx -y &>>$LOG
 Stats_Check $?
 
@@ -20,7 +20,7 @@ Print "Update Nginx RoboShop Config"
 mv lcoalhost.conf /etc/nginx/default.d/roboshop.conf &>>$LOG
 Stats_Check $?
 
-Print "Restart Nginx\t"
+Print "Restart Nginx\t\t"
 systemctl restart nginx &>>$LOG && systemctl enable nginx &>>$LOG
 Stats_Check $?
 

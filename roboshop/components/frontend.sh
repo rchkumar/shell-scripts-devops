@@ -12,7 +12,7 @@ Stats_Check $?
 
 
 Print "Extract Frontend Archive"
-rm -rf /usr/share/nginx/html && cd /usr/share/nginx/html && unzip -o  /tmp/frontend.zip &>>$LOG && mv frontend-main/* . && mv static/* . &>>$LOG
+rm -rf /usr/share/nginx/html && cd /usr/share/nginx && unzip -o  /tmp/frontend.zip &>>$LOG && mv frontend-main/* . &>>$LOG && mv static/* . &>>$LOG
 Stats_Check $?
 
 
